@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>form registration</title>
+</head>
+<body>
+    <form action="sign_up.php" method="POST">
+        <div class="main">
+            <h1>Регистрация</h1>
+
+            <div class="input_conteiner">
+                <label for="firstname">Имя*</label>
+                <input type="text" id ="firstname" name ="firstname" required>
+            </div>
+
+            <div class="input_conteiner">
+                <label for="lastname">Фамилия*</label>
+                <input type="text" id ="lastname" name ="lastname" required>
+            </div>
+
+            <div class="input_conteiner">
+                <label for="login">Логин*</label>
+                <input type="text" id ="login" name ="login" required>
+            </div>
+
+            <div class="input_conteiner">
+                <label for="password">Пароль*</label>
+                <input type="password" id ="password" name="password" required> 
+            </div>
+
+            <div class="input_conteiner">
+                <label for="repassword">Повтор пароля*</label>
+                <input type="password" id ="repassword" name="repassword" required> 
+            </div>
+
+           <div class="sign_in_conteiner">
+               <a href="sign_in.html">Вход</a>
+               <button type="submit" style="width: 100px;">Регистрация</button>
+           </div>
+        </div>
+    </form>   
+</body>
+</html>

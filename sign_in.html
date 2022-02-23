@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>form authorization</title>
+</head>
+<body>
+    <form action="sign_in.php" method="POST">
+        <div class="main">
+            <h1>Вход</h1>
+
+           <div class="input_conteiner">
+                <label for="login">Логин* (номер телефона или пароль)</label>
+                <input type="text" id ="login" name ="login" required>
+           </div>
+
+           <div class="input_conteiner">
+                <label for="password">Пароль*</label>
+                <input type="password" id ="password" name="password" required> 
+           </div>
+
+           <div class="sign_in_conteiner">
+               <a href="index.html">Регистрация</a>
+               <button type="submit">Вход</button>
+           </div>
+        </div>
+    </form>   
+</body>
+</html>
