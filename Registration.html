@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="black"></div>
+    <div class="main2">
+        <div class="left">
+            <div id="hexagon">LOGO</div>
+        </div>
+
+        <div class="right">
+
+            <h2>Регистрация</h2>
+
+            <form action="sign_up.php" method="POST">
+                <label for="firstname">Имя*</label>
+                <input type="text" id="firstname" name="firstname" required>
+
+                <label for="lastname">Фамилия*</label>
+                <input type="text" id="lastname" name="lastname" required>
+
+                <label for="login">E-mail или номер телефона*</label>
+                <input type="login" id="login" name="login" required>
+
+                <label for="password">Пароль*</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="repassword">Подтверждение пароля*</label>
+                <input type="password" id="repassword" name="repassword" required>
+
+                <button type="submit">Регистрация</button>            
+            </form>
+
+            <div class="help">
+                <a href="index.html">Уже зарегестрированы?</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

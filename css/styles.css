@@ -1,0 +1,152 @@
+body {
+    font-family: sans-serif;
+    background-image: url(../img/abstract_background.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+
+.black {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 20;
+    margin: 0;
+}
+
+.main {
+    height: 570px;
+    width: 1000px;
+    z-index: 40;
+    display: flex;
+}
+
+.main2 {
+    height: 750px;
+    width: 1000px;
+    z-index: 40;
+    display: flex;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    border-bottom-left-radius: 5%;
+    border-top-left-radius: 5%;
+    background: linear-gradient(60deg, #ac70d4, #eeb3ed);
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+    border-bottom-right-radius: 5%;
+    border-top-right-radius: 5%;
+    background-color: rgb(48, 45, 47);
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+form input {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: #fff;
+    width: 80%;
+    margin-bottom: 8%;
+}
+
+form label {
+    margin-bottom:2%;
+    text-align: left;
+    width: 80%;
+}
+
+form button {
+    margin-bottom: 6%;
+    width: 80%;
+    height: 40px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #ac70d4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #eeb3ed;
+}
+
+.help a {
+    color: rgb(218, 218, 218);
+}
+
+.help span {
+    color: rgb(201, 201, 201);
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hexagon {
+    width: 100px;
+    height: 55px;
+    background: rgb(48, 45, 47);
+    position: relative;
+    margin: 10px auto;
+    zoom: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#hexagon:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid rgb(48, 45, 47);
+}
+
+#hexagon:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid rgb(48, 45, 47);
+}
