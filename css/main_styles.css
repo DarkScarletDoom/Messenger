@@ -20,6 +20,50 @@ p{
     margin: 0;
 }
 
+#modal{
+    z-index: 100;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+}
+
+#modalContent{
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255);
+    font-size: 17px;
+    width: 400px;
+    height: 700px;
+    border-radius: 5px;
+}
+
+#searchUserslist{
+    width: 100%;
+}
+
+#searchUserslist li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 10px 0 10px;
+}
+
+#searchUserslist li:hover{ background-color: rgb(235, 235, 235); cursor: pointer; }
+
+.statusOnline{ color: rgb(49, 138, 255); }
+.statusOffline{ color: rgb(0, 0, 0, 0.6);}
+
+#searchUsers li:hover{
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
 main{
     display: flex;
     margin-top: 30px;
@@ -35,7 +79,7 @@ main{
     background-color: rgb(233, 233, 233);
 }
 
-#ProfileHeader{
+#profileHeader{
     box-sizing: border-box;
     width: 100%;
     height: 150px;
@@ -44,12 +88,12 @@ main{
     color: aliceblue;
 }
 
-#ProfileHeader p:hover{
+#profileHeader p:hover{
     color: rgb(184, 184, 184);
     cursor: pointer;
 }
 
-#UserAvatar{
+#userAvatar{
     background-image: url(../img/personal/aG8Dm5c46R4.jpg);
     background-size: cover;
     display: flex;
@@ -99,11 +143,11 @@ header{
     justify-content: center;
 }
 
-#ChatsSearch{
+#chatsSearch{
     outline-color: rgb(49, 138, 255);
 }
 
-#ChatsSearch{
+#chatsSearch{
     box-sizing: border-box;
     width: 80%;
     height: 30px;
@@ -114,7 +158,7 @@ header{
     padding-left: 10px;
 }
 
-#Chats li{
+#chats li{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -123,7 +167,7 @@ header{
     padding: 0 10px 0 10px;
 }
 
-#Chats li:hover{
+#chats li:hover{
     background-color: rgb(226, 226, 226);
 }
 
@@ -137,47 +181,4 @@ header{
 
 .lastMessege{
     opacity: 0.5;
-}
-
-.modal{
-    z-index: 100;
-    align-items: center;
-    position: fixed;
-    overflow: auto;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(4px);
-    display: flex;
-}
-
-.modalContent{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255);
-    font-size: 150%;
-    width: 400px;
-    height: 700px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#searchUsers li{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    height: 60px;
-    padding: 0 10px 0 10px;
-}
-
-.statusOnline{ color: rgb(49, 138, 255); }
-.statusOffline{ color: rgb(0, 0, 0, 0.6);}
-
-#searchUsers li:hover{
-    background-color: rgb(235, 235, 235);
-    cursor: pointer;
 }
