@@ -42,6 +42,15 @@ p{
     border-radius: 5px;
 }
 
+#searchUsersinput {
+    box-sizing: border-box;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 #searchUserslist{
     width: 100%;
 }
@@ -62,6 +71,10 @@ p{
 #searchUsers li:hover{
     background-color: rgb(235, 235, 235);
     cursor: pointer;
+}
+
+#modalContent .modalDiv:nth-child(n) {
+    display: none;
 }
 
 main{
