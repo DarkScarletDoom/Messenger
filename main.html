@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main_styles.css">
+    <title>Messenger</title>
+</head>
+<body>
+
+<!-- ################################# M O D A L ###################################################################################### -->
+
+    <div id="modal" style="display: none;">
+        <div id="modalContent">
+
+            <div>
+                <h3 style="margin-left: 10px;">Поиск пользователей</h3>
+                <input type="text" id="searchUsersinput" style="box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2);" placeholder="Поиск">
+                <ul id="searchUserslist">
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+<!-- ################################# M A I N ###################################################################################### -->
+
+    <main>
+        <div id="profile">
+            <div id="profileHeader">
+                <div class="avatar" id="userAvatar"></div>
+                <div style="margin-top: 10px;">
+                    <p id="nameOfUser">Владислав Кирилин</p>
+                    <p id="login">+7 960 374 76 55</p>
+                </div>
+            </div>
+
+            <ul id="navigation">
+                <li id="chatsNav">Чаты</li>
+                <li id="createChatNav">Создать беседу</li>
+                <li id="searchUsersNav">Поиск пользователей</li>
+                <li id="nightModeNav">Ночной режим</li>
+                <li id="aboutProjectNav">О проекте</li>
+            </ul>
+
+            <div class="footer">
+                <p>@ 2022 «MESSENGER»</p>
+                <p>version: 1.0 пробная</p>
+            </div>
+        </div>
+
+        <div id="mainContent">
+            <header>
+                <input id="chatsSearch" type="text" placeholder="Поиск">
+            </header>
+            
+            <div id="content">
+
+<!-- ################################# C H A T S ###################################################################################### -->
+
+                <ul id="chats">
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you?</p>
+                            </div>
+                        </div>
+                        <p class="time">12:00</p>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you?</p>
+                            </div>
+                        </div>
+                        <p class="time">12:00</p>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div class="infoAboutChat">
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you?</p>
+                            </div>
+                        </div>
+                        <p class="time">12:00</p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

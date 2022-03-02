@@ -1,0 +1,184 @@
+body{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
+#modal{
+    z-index: 100;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+}
+
+#modalContent{
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255);
+    font-size: 17px;
+    width: 400px;
+    height: 700px;
+    border-radius: 5px;
+}
+
+#searchUserslist{
+    width: 100%;
+}
+
+#searchUserslist li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 10px 0 10px;
+}
+
+#searchUserslist li:hover{ background-color: rgb(235, 235, 235); cursor: pointer; }
+
+.statusOnline{ color: rgb(49, 138, 255); }
+.statusOffline{ color: rgb(0, 0, 0, 0.6);}
+
+#searchUsers li:hover{
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    margin-top: 30px;
+    height: 780px;
+    width: 900px;
+}
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(233, 233, 233);
+}
+
+#profileHeader{
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    background-image: url(../img/atlantic-1794462_1280.jpg);
+    color: aliceblue;
+}
+
+#profileHeader p:hover{
+    color: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+#userAvatar{
+    background-image: url(../img/personal/aG8Dm5c46R4.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#navigation{
+    margin-top: 10px;
+}
+
+#navigation li{
+   height: 50px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   padding-left: 10px;
+}
+
+#navigation li:hover{
+    background-color: rgb(216, 216, 216);
+    cursor: pointer; 
+}
+
+.footer{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+#mainContent{
+    background-color: rgba(240, 248, 255);
+    height: 100%;
+    width: 650px;
+    /* background: linear-gradient(90deg, #9c4b48, #4b7fb1); */
+}
+
+header{
+    height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatsSearch{
+    outline-color: rgb(49, 138, 255);
+}
+
+#chatsSearch{
+    box-sizing: border-box;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    /* border: 1px solid rgb(235, 235, 235); */
+    border: none;
+    background-color: rgb(235, 235, 235);
+    padding-left: 10px;
+}
+
+#chats li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 60px;
+    padding: 0 10px 0 10px;
+}
+
+#chats li:hover{
+    background-color: rgb(226, 226, 226);
+}
+
+.avatar{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(182, 98, 199);
+    margin: 0 10px 0 0;
+}
+
+.lastMessege{
+    opacity: 0.5;
+}
