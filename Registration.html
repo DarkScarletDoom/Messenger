@@ -9,27 +9,36 @@
 </head>
 <body>
     <div class="black"></div>
-    <div class="main">
+    <div class="main2">
         <div class="left">
-            <div id="hexagon">Messenger</div>
+            <div id="hexagon">LOGO</div>
         </div>
 
         <div class="right">
 
-            <h2>Вход в систему</h2>
+            <h2>Регистрация</h2>
 
-            <form action="php/sign_in.php" method="POST">
+            <form action="php/sign_up.php" method="POST">
+                <label for="firstname">Имя*</label>
+                <input type="text" id="firstname" name="firstname" required>
+
+                <label for="lastname">Фамилия*</label>
+                <input type="text" id="lastname" name="lastname" required>
+
                 <label for="login">E-mail или номер телефона*</label>
                 <input type="login" id="login" name="login" required>
 
                 <label for="password">Пароль*</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Войти</button>            
+                <label for="repassword">Подтверждение пароля*</label>
+                <input type="password" id="repassword" name="repassword" required>
+
+                <button type="submit">Регистрация</button>            
             </form>
 
             <div class="help">
-                <a href="registration.html">Регистрация</a>
+                <a href="index.html">Уже зарегестрированы?</a>
             </div>
 
         </div>
