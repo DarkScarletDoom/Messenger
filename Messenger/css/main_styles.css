@@ -1,0 +1,233 @@
+:root {
+    --dark-theme-bg: #0d1910;
+    --dark-theme-main: #242424;
+    --light-theme-bg: #EDEEF7;
+    --light-theme-main: #E4FBFF;
+    --current-bg-color: var(--light-theme-bg);
+    --current-main-color: var(--light-theme-main);
+    --bg-image-opacity: 0.6;
+    --light-main-text-color: #0d1910;
+    --dark-main-text-color: #cccccc;
+    --current-main-text-color: var(--dark-theme-bg);
+    --accent-color: #7868E6;
+}
+
+body{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-theme-bg);
+    color: var(--current-main-text-color);
+}
+
+body::after {
+    content: "";
+    background: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: var(--bg-image-opacity);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
+#modal{
+    z-index: 100;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+}
+
+#modalContent{
+    box-sizing: border-box;
+    background-color: var(--current-bg-color);
+    font-size: 17px;
+    width: 400px;
+    height: 700px;
+    border-radius: 5px;
+}
+
+#searchUsersinput {
+    box-sizing: border-box;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#searchUserslist{
+    width: 100%;
+}
+
+#searchUserslist li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 10px 0 10px;
+}
+
+#searchUserslist li:hover {
+    background-color: var(--current-main-color);
+    cursor: pointer;
+}
+
+.statusOnline {
+    color: var(--accent-color);
+}
+
+.statusOffline {
+    color: rgba(126, 126, 126, 0.6);
+}
+
+#searchUsers li:hover{
+    background-color: var(--current-main-color);
+    cursor: pointer;
+}
+
+#modalContent .modalDiv:nth-child(n) {
+    display: none;
+}
+
+main{
+    display: flex;
+    margin-top: 30px;
+    height: 780px;
+    width: 900px;
+}
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    background-color: var(--current-bg-color);
+}
+
+#profileHeader{
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    background-image: url(../img/atlantic-1794462_1280.jpg);
+    color: var(--current-main-text-color);
+}
+
+#profileHeader p:hover{
+    color: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+#userAvatar{
+    background-image: url(../img/personal/aG8Dm5c46R4.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#navigation{
+    margin-top: 10px;
+}
+
+#navigation li{
+   height: 50px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   padding-left: 10px;
+}
+
+#navigation li:hover{
+    background-color: var(--current-main-color);
+    cursor: pointer; 
+}
+
+.footer{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+#mainContent{
+    background-color: var(--current-main-color);
+    height: 100%;
+    width: 650px;
+    /* background: linear-gradient(90deg, #9c4b48, #4b7fb1); */
+}
+
+header{
+    height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatsSearch{
+    outline-color: var(--accent-color);
+}
+
+#chatsSearch{
+    box-sizing: border-box;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    /* border: 1px solid var(--current-main-color); */
+    border: none;
+    background-color: var(--current-main-color);
+    padding-left: 10px;
+}
+
+#chats li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 60px;
+    padding: 0 10px 0 10px;
+}
+
+#chats li:hover{
+    background-color: var(--current-main-color);
+}
+
+.avatar{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #B8B5FF;
+    margin: 0 10px 0 0;
+}
+
+.lastMessege{
+    opacity: 0.5;
+}
