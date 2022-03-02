@@ -69,6 +69,7 @@ main{
     margin-top: 30px;
     height: 780px;
     width: 900px;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #profile{
@@ -136,7 +137,7 @@ main{
 }
 
 header{
-    height: 40px;
+    height: 50px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
@@ -150,7 +151,7 @@ header{
 #chatsSearch{
     box-sizing: border-box;
     width: 80%;
-    height: 30px;
+    height: 35px;
     border-radius: 5px;
     /* border: 1px solid rgb(235, 235, 235); */
     border: none;
@@ -181,4 +182,15 @@ header{
 
 .lastMessege{
     opacity: 0.5;
+}
+
+#messegeInputDiv{
+    height: 50px;
+    width: 100%;
+    margin-top: auto;
+    display: none;
+}
+
+#messegeInput{
+    box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2); outline: none
 }

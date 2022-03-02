@@ -16,7 +16,7 @@
 
             <div>
                 <h3 style="margin-left: 10px;">Поиск пользователей</h3>
-                <input type="text" id="searchUsersinput" style="box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2);" placeholder="Поиск">
+                <input type="text" id="searchUsersinput" style="box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2); outline: none" placeholder="Поиск">
                 <ul id="searchUserslist">
                     <li>
                         <div style="display: flex;">
@@ -82,7 +82,7 @@
                 <input id="chatsSearch" type="text" placeholder="Поиск">
             </header>
             
-            <div id="content">
+            <div id="content" style="height: 730px; background-size: cover; display: flex; flex-direction: column;">
 
 <!-- ################################# C H A T S ###################################################################################### -->
 
@@ -118,6 +118,10 @@
                         <p class="time">12:00</p>
                     </li>
                 </ul>
+
+                <div id="messegeInputDiv">
+                    <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
+                </div>
 
             </div>
         </div>
