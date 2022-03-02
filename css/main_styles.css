@@ -1,3 +1,17 @@
+:root {
+    --dark-theme-bg: #0d1910;
+    --dark-theme-main: #242424;
+    --light-theme-bg: #EDEEF7;
+    --light-theme-main: #E4FBFF;
+    --current-bg-color: var(--light-theme-bg);
+    --current-main-color: var(--light-theme-main);
+    --bg-image-opacity: 0.6;
+    --light-main-text-color: #0d1910;
+    --dark-main-text-color: #cccccc;
+    --current-main-text-color: var(--dark-theme-bg);
+    --accent-color: #7868E6;
+}
+
 body{
     font-family: sans-serif;
     padding: 0;
@@ -5,10 +19,23 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
+    background-color: var(--dark-theme-bg);
+    color: var(--current-main-text-color);
+}
+
+body::after {
+    content: "";
+    background: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
+    opacity: var(--bg-image-opacity);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
 
 ul{
     list-style-type: none;
@@ -35,7 +62,7 @@ p{
 
 #modalContent{
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255);
+    background-color: var(--current-bg-color);
     font-size: 17px;
     width: 400px;
     height: 700px;
@@ -49,6 +76,7 @@ p{
     width: 100%;
     font-size: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #searchUserslist{
@@ -63,13 +91,21 @@ p{
     padding: 0 10px 0 10px;
 }
 
-#searchUserslist li:hover{ background-color: rgb(235, 235, 235); cursor: pointer; }
+#searchUserslist li:hover {
+    background-color: var(--current-main-color);
+    cursor: pointer;
+}
 
-.statusOnline{ color: rgb(49, 138, 255); }
-.statusOffline{ color: rgb(0, 0, 0, 0.6);}
+.statusOnline {
+    color: var(--accent-color);
+}
+
+.statusOffline {
+    color: rgba(126, 126, 126, 0.6);
+}
 
 #searchUsers li:hover{
-    background-color: rgb(235, 235, 235);
+    background-color: var(--current-main-color);
     cursor: pointer;
 }
 
@@ -89,7 +125,7 @@ main{
     flex-direction: column;
     width: 250px;
     height: 100%;
-    background-color: rgb(233, 233, 233);
+    background-color: var(--current-bg-color);
 }
 
 #profileHeader{
@@ -98,7 +134,7 @@ main{
     height: 150px;
     padding: 10px;
     background-image: url(../img/atlantic-1794462_1280.jpg);
-    color: aliceblue;
+    color: var(--current-main-text-color);
 }
 
 #profileHeader p:hover{
@@ -127,7 +163,7 @@ main{
 }
 
 #navigation li:hover{
-    background-color: rgb(216, 216, 216);
+    background-color: var(--current-main-color);
     cursor: pointer; 
 }
 
@@ -142,7 +178,7 @@ main{
 }
 
 #mainContent{
-    background-color: rgba(240, 248, 255);
+    background-color: var(--current-main-color);
     height: 100%;
     width: 650px;
     /* background: linear-gradient(90deg, #9c4b48, #4b7fb1); */
@@ -157,7 +193,7 @@ header{
 }
 
 #chatsSearch{
-    outline-color: rgb(49, 138, 255);
+    outline-color: var(--accent-color);
 }
 
 #chatsSearch{
@@ -165,9 +201,9 @@ header{
     width: 80%;
     height: 30px;
     border-radius: 5px;
-    /* border: 1px solid rgb(235, 235, 235); */
+    /* border: 1px solid var(--current-main-color); */
     border: none;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--current-main-color);
     padding-left: 10px;
 }
 
@@ -181,14 +217,14 @@ header{
 }
 
 #chats li:hover{
-    background-color: rgb(226, 226, 226);
+    background-color: var(--current-main-color);
 }
 
 .avatar{
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    background-color: rgb(182, 98, 199);
+    background-color: #B8B5FF;
     margin: 0 10px 0 0;
 }
 
