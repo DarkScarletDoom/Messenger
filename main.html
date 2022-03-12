@@ -14,14 +14,145 @@
     <div id="modal" style="display: none;">
         <div id="modalContent">
 
-            <div>
-                <h3 style="margin-left: 10px;">Поиск пользователей</h3>
-                <input type="text" id="searchUsersinput" style="box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2); outline: none" placeholder="Поиск">
-                <ul id="searchUserslist">
+            <!-- Высота modalContent: 650px -->
+            <div id="searchUsers" style="display: none;">
+               <div class="stickyDivHeader">
+                    <h3 style="margin-left: 10px;">Поиск пользователей</h3>
+                    <input type="text" id="searchUsersinput" placeholder="Поиск">
+               </div>
+                <ul class="searchUserslist" style="height: 540px;">
                     <li>
                         <div style="display: flex;">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li> 
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li> 
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li> 
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li> 
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Высота modalContent: 200px -->
+            <div id="createChat" class="modalDiv" style="display: none;">
+                <h3 style="padding-left: 10px;">Название беседы</h3>
+                <input type="text" placeholder="название" required>
+               <div style="margin: auto 0 0 auto;">
+                    <button>Отмена</button>
+                    <button>Далее</button>
+               </div>
+            </div>
+
+             <!-- Высота modalContent: 650px -->
+             <div id="addParticipants" style="display: block; height: 100%; display: none;">
+                <div class="stickyDivHeader">
+                    <h3 style="margin-left: 10px;">Добавить участников</h3>
+                    <input type="text" id="searchUsersinput" placeholder="Поиск">
+                </div>
+                <ul class="searchUserslist">
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
                                 <p class="nameOfChat">User</p>
                                 <p class="statusOnline">В сети</p>
                             </div>
@@ -30,7 +161,7 @@
                     <li>
                         <div style="display: flex;">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
                                 <p class="nameOfChat">User</p>
                                 <p class="statusOffline">Был(а) в 11:00</p>
                             </div>
@@ -39,14 +170,113 @@
                     <li>
                         <div style="display: flex;">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOnline">В сети</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="statusOffline">Был(а) в 11:00</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display: flex;">
+                            <div class="avatar"></div>
+                            <div>
                                 <p class="nameOfChat">User</p>
                                 <p class="statusOffline">Был(а) в 11:00</p>
                             </div>
                         </div>
                     </li>
                 </ul>
+
+                <div class="stickyDivFooter">
+                    <button>Назад</button>
+                    <button>Создать</button>
+               </div>
             </div>
+
+            <!-- Высота modalContent: 500px -->
+            <div id="aboutProject" class="modalDiv" style="box-sizing: border-box; display: none; flex-direction: column; padding: 10px; height: 100%;"> 
+                <h3>О проекте «Messenger»</h3>
+                <p><b>Messenger</b> – социальная сеть в России и странах СНГ. Наша миссия — соединять людей, сервисы и компании, создавая простые и удобные инструменты коммуникации.</p>
+
+                <div style="margin-top: 20px;">
+                    <p><b>Версия:</b> 1.0 (прототип)</p>
+                    <p><b>Стэк технологий:</b> Visual Studio Code, HTML5, CSS3, JavaScript ES6, PHP 7.1, MySQL 8.0</p>
+                    <p><b>Разработчики:</b> <a href="https://vk.com/dark_scarlet_doom">Владислав Кирилин</a>, <a href="https://vk.com/ilyaguar">Илья Кузьмин</a></p>
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -73,60 +303,190 @@
 
             <div class="footer">
                 <p>@ 2022 «MESSENGER»</p>
-                <p>version: 1.0 пробная</p>
+                <p>version: 1.0 прототип</p>
             </div>
         </div>
 
         <div id="mainContent">
             <header>
                 <input id="chatsSearch" type="text" placeholder="Поиск">
+                <div style="display: none;">
+                    <p>User</p>
+                    <p>Был(а) в сети в <span>12:00</span></p>
+                </div>
             </header>
             
             <div id="content" style="height: 730px; background-size: cover; display: flex; flex-direction: column;">
 
 <!-- ################################# C H A T S ###################################################################################### -->
 
-                <ul id="chats">
+                <ul id="chats" style="display: block;">
                     <li>
-                        <div style="display: flex;">
+                        <div class="infoAboutChat">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
                                 <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you?</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
                             </div>
                         </div>
-                        <p class="time">12:00</p>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
                     </li>
                     <li>
-                        <div style="display: flex;">
+                        <div class="infoAboutChat">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
                                 <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you?</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
                             </div>
                         </div>
-                        <p class="time">12:00</p>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
                     </li>
                     <li>
-                        <div style="display: flex;">
+                        <div class="infoAboutChat">
                             <div class="avatar"></div>
-                            <div class="infoAboutChat">
+                            <div>
                                 <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you?</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
                             </div>
                         </div>
-                        <p class="time">12:00</p>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
                     </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+                    <li>
+                        <div class="infoAboutChat">
+                            <div class="avatar"></div>
+                            <div>
+                                <p class="nameOfChat">User</p>
+                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
+                            </div>
+                        </div>
+
+                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                    </li>
+
+                    
                 </ul>
 
-                <div id="messegeInputDiv">
+                <form action="#" method="POST" id="messegeInputDiv" style="display: none;">
                     <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
-                </div>
+                </form>
 
             </div>
         </div>
     </main>
 
-    <script src="js/index.js"></script>
+    <!-- <script src="js/index.js"></script> -->
 </body>
 </html>
