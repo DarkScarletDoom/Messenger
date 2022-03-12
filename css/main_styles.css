@@ -22,9 +22,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: var(--dark-theme-bg);
+    height: 100vh;
 }
 
 body::after {
@@ -84,7 +83,6 @@ button:hover{
     z-index: 100;
     align-items: center;
     position: fixed;
-    overflow: hidden;
     justify-content: center;
     width: 100vw;
     height: 100vh;
@@ -181,7 +179,6 @@ button:hover{
 
 main{
     display: flex;
-    margin: 30px 0 30px 0;
     height: 780px;
     width: 900px;
 }
@@ -192,7 +189,7 @@ main{
     width: 250px;
     height: 100%;
     background-color: var(--current-bg-color);}
-
+s
 #profileHeader{
     box-sizing: border-box;
     width: 100%;
