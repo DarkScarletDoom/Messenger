@@ -11,7 +11,7 @@
     --bg-image-opacity: 1;
     --light-main-text-color: #0d1910;
     --dark-main-text-color: #cccccc;
-    --current-main-text-color: var(--dark-theme-bg);
+    --current-main-text-color: var(--light-main-text-color);
     --accent-color: rgb(49, 138, 255);
 }
 
@@ -22,9 +22,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../img/zakat_more_nebo_gorizont_115519_1920x1080.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    color: var(--current-main-text-color);
+    background-color: var(--dark-theme-bg);
 }
 
 body::after {
@@ -116,6 +115,7 @@ button:hover{
     box-sizing: border-box;
     height: 480px;
     overflow: auto;
+    background-color: var(--current-main-color);
 }
 
 .searchUserslist li{
@@ -143,6 +143,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: var(--current-main-color);
 }
 
 #createChat input{
@@ -173,6 +174,10 @@ button:hover{
     align-items: center;
     justify-content: flex-end;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#aboutProject {
+    background-color: var(--current-main-color);
 }
 
 #aboutProject p{
