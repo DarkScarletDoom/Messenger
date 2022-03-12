@@ -15,7 +15,7 @@
         <div id="modalContent">
 
             <!-- Высота modalContent: 650px -->
-            <div id="searchUsers" style="display: none;">
+            <div id="searchUsers" style="display: block;">
                <div class="stickyDivHeader">
                     <h3 style="margin-left: 10px;">Поиск пользователей</h3>
                     <input type="text" id="searchUsersinput" placeholder="Поиск">
@@ -134,7 +134,7 @@
 
             <!-- Высота modalContent: 200px -->
             <div id="createChat" class="modalDiv" style="display: none;">
-                <h3 style="padding-left: 10px;">Название беседы</h3>
+                <h3 style="padding: 10px; margin: 0;">Название беседы</h3>
                 <input type="text" placeholder="название" required>
                <div style="margin: auto 0 0 auto;">
                     <button>Отмена</button>
@@ -297,7 +297,7 @@
                 <li id="chatsNav">Чаты</li>
                 <li id="createChatNav">Создать беседу</li>
                 <li id="searchUsersNav">Поиск пользователей</li>
-                <li id="nightModeNav" class="light">Ночной режим</li>
+                <li id="nightModeNav">Ночной режим</li>
                 <li id="aboutProjectNav">О проекте</li>
             </ul>
 
@@ -479,7 +479,7 @@
                     
                 </ul>
 
-                <form action="#" method="POST" id="messegeInputDiv" style="display: none;">
+                <form action="#" method="POST" id="messegeInputDiv" style="display: none;" onsubmit="return false;">
                     <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
                 </form>
 
@@ -487,8 +487,7 @@
         </div>
     </main>
 
-    <!-- <script src="js/index.js"></script> -->
     <script src="js/functions.js"></script>
-    <script src="js/switching_tabs.js"></script>
+    <script src="js/swithing_tabs.js"></script>
 </body>
 </html>
