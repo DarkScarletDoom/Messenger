@@ -1,18 +1,21 @@
 :root {
     --dark-theme-bg: #1d1d1d;
     --dark-theme-main: #242424;
-    --light-theme-bg: rgb(235, 235, 235);
-    --light-theme-hover: rgb(216, 216, 216);
     --dark-theme-hover: rgb(19, 19, 19);
+    --dark-main-text-color: #cccccc;
+
+    --light-theme-bg: rgb(235, 235, 235);
     --light-theme-main: #ffffff;
+    --light-theme-hover: rgb(216, 216, 216);
+    --light-main-text-color: #0d1910;
+
+    --bg-image-opacity: 1;
+    --accent-color: rgb(49, 138, 255);
+
     --current-bg-color: var(--light-theme-bg);
     --current-main-color: var(--light-theme-main);
     --current-theme-hover: var(--light-theme-hover);
-    --bg-image-opacity: 1;
-    --light-main-text-color: #0d1910;
-    --dark-main-text-color: #cccccc;
-    --current-main-text-color: var(--dark-theme-bg);
-    --accent-color: rgb(49, 138, 255);
+    --current-main-text-color: var(--light-main-text-color);
 }
 
 body{
@@ -23,6 +26,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: var(--dark-theme-bg);
+    color: var(--current-main-text-color);
     height: 100vh;
 }
 
@@ -93,7 +97,7 @@ button:hover{
 
 #modalContent{
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255);
+    background-color: var(--current-main-color);
     font-size: 17px;
     width: 400px;
     height: 650px;
@@ -122,6 +126,10 @@ button:hover{
     justify-content: space-between;
     height: 60px;
     padding: 0 10px 0 10px;
+}
+
+.add{
+    background-color: rgba(19, 131, 236, 0.5);
 }
 
 .searchUserslist li:hover{
@@ -188,8 +196,9 @@ main{
     flex-direction: column;
     width: 250px;
     height: 100%;
-    background-color: var(--current-bg-color);}
-s
+    background-color: var(--current-bg-color);
+}
+
 #profileHeader{
     box-sizing: border-box;
     width: 100%;
@@ -246,7 +255,7 @@ s
 }
 
 header{
-    height: 50px;
+    height: 49px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -307,13 +316,28 @@ header{
     opacity: 0.5;
 }
 
-#messegeInputDiv{
-    height: 50px;
+.messege{
     width: 100%;
-    margin-top: auto;
-    display: none;
+    background-color: #0d19104f;
+    color: #cccccc;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #messegeInput{
-    box-sizing: border-box; border: none; padding: 10px; width: 100%; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.2); outline: none
+    margin-top: auto;
+    box-sizing: border-box;
+    border: none; 
+    padding: 10px; 
+    height: 50px;
+    width: 100%; 
+    font-size: 16px; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+    outline: none;
+    display: none;
+    background-color: var(--current-bg-color);
+    color: var(--current-main-text-color);
 }

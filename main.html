@@ -15,10 +15,10 @@
         <div id="modalContent">
 
             <!-- Высота modalContent: 650px -->
-            <div id="searchUsers" style="display: block;">
+            <div id="searchUsers" style="display: none;">
                <div class="stickyDivHeader">
                     <h3 style="margin-left: 10px;">Поиск пользователей</h3>
-                    <input type="text" id="searchUsersinput" placeholder="Поиск">
+                    <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                </div>
                 <ul class="searchUserslist" style="height: 540px;">
                     <li>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li> 
                         <div style="display: flex;">
                             <div class="avatar"></div>
                             <div>
@@ -135,10 +135,12 @@
             <!-- Высота modalContent: 200px -->
             <div id="createChat" class="modalDiv" style="display: none;">
                 <h3 style="padding: 10px; margin: 0;">Название беседы</h3>
-                <input type="text" placeholder="название" required>
+                <form action="#" method="POST">
+                    <input type="text" id="nameChatInput" placeholder="название" required style="color: var(--current-main-text-color);">
+                </form>
                <div style="margin: auto 0 0 auto;">
-                    <button>Отмена</button>
-                    <button>Далее</button>
+                    <button id="createChatResetButton">Отмена</button>
+                    <button id="createChatNextButton" type="submit">Далее</button>
                </div>
             </div>
 
@@ -146,7 +148,7 @@
              <div id="addParticipants" style="display: block; height: 100%; display: none;">
                 <div class="stickyDivHeader">
                     <h3 style="margin-left: 10px;">Добавить участников</h3>
-                    <input type="text" id="searchUsersinput" placeholder="Поиск">
+                    <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 </div>
                 <ul class="searchUserslist">
                     <li>
@@ -260,8 +262,8 @@
                 </ul>
 
                 <div class="stickyDivFooter">
-                    <button>Назад</button>
-                    <button>Создать</button>
+                    <button id="createChatBackButton">Назад</button>
+                    <button id="createChatCreateButton">Создать</button>
                </div>
             </div>
 
@@ -297,7 +299,7 @@
                 <li id="chatsNav">Чаты</li>
                 <li id="createChatNav">Создать беседу</li>
                 <li id="searchUsersNav">Поиск пользователей</li>
-                <li id="nightModeNav">Ночной режим</li>
+                <li id="nightModeNav" class="light">Ночной режим</li>
                 <li id="aboutProjectNav">О проекте</li>
             </ul>
 
@@ -309,7 +311,7 @@
 
         <div id="mainContent">
             <header>
-                <input id="chatsSearch" type="text" placeholder="Поиск">
+                <input id="chatsSearch" type="text" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 <div style="display: none;">
                     <p>User</p>
                     <p>Был(а) в сети в <span>12:00</span></p>
@@ -317,7 +319,8 @@
             </header>
             
             <div id="content" style="height: 730px; background-size: cover; display: flex; flex-direction: column;">
-
+                <h2 id="welcomeToTheChat" style="display: none; color: white; margin: 0; padding: 10px; opacity: 0.8;">Напишите что нибудь здесь. История сообщений пуста</h2>
+                <ul id="messegeStory" style="overflow: auto; height: 100%; display: none;"></ul>
 <!-- ################################# C H A T S ###################################################################################### -->
 
                 <ul id="chats" style="display: block;">
@@ -479,15 +482,12 @@
                     
                 </ul>
 
-                <form action="#" method="POST" id="messegeInputDiv" style="display: none;" onsubmit="return false;">
                     <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
-                </form>
-
             </div>
         </div>
     </main>
 
     <script src="js/functions.js"></script>
-    <script src="js/swithing_tabs.js"></script>
+    <script src="js/switching_tabs.js"></script>
 </body>
 </html>
