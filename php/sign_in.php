@@ -15,13 +15,22 @@
     $user = new User($_POST['login'], $_POST['password'], $link);
     $response = $user->authorization();
     if ($response == 2){
-        echo "<p>Ошибка запроса</p>";
+        echo "<script>
+                alert('Ошибка запроса. Попробуйте еще раз')
+             </script>";
     } 
     elseif($response == 0) {
-        echo "<p>Неправльный логин или пароль</p>";
+        echo "<script>
+                alert('Неправльный логин или пароль')
+                window.location.href = '../index.html'
+             </script>";
     }
-    else{
-        echo "<p>Добро пожаловать!</p>";
+    else{   
+        $user->save_session_data();
+        echo "<script>
+                alert('Добро пожаловать!')
+                window.location.href = 'main.php'
+             </script>"; 
     }
 
     mysqli_close($link);

@@ -101,7 +101,6 @@ button:hover{
     font-size: 17px;
     width: 400px;
     height: 650px;
-    border-radius: 5px;
 }
 
 #searchUsersinput {
@@ -267,7 +266,6 @@ header{
     box-sizing: border-box;
     width: 80%;
     height: 35px;
-    border-radius: 5px;
     border: none;
     background-color: var(--current-bg-color);
     outline-color: var(--accent-color);

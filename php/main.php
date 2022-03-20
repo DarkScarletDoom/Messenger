@@ -1,10 +1,14 @@
+<?php
+    require 'constants.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main_styles.css">
+    <link rel="stylesheet" href="../css/main_styles.css">
     <title>Messenger</title>
 </head>
 <body>
@@ -79,7 +83,9 @@
                         <div style="display: flex;">
                             <div class="avatar"></div>
                             <div>
-                                <p class="nameOfChat">User</p>
+                                <p class="nameOfChat">
+                                    User
+                                </p>
                                 <p class="statusOnline">В сети</p>
                             </div>
                         </div>
@@ -145,7 +151,7 @@
             </div>
 
              <!-- Высота modalContent: 650px -->
-             <div id="addParticipants" style="display: block; height: 100%; display: none;">
+            <div id="addParticipants" style="display: block; height: 100%; display: none;">
                 <div class="stickyDivHeader">
                     <h3 style="margin-left: 10px;">Добавить участников</h3>
                     <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
@@ -290,8 +296,26 @@
             <div id="profileHeader">
                 <div class="avatar" id="userAvatar"></div>
                 <div style="margin-top: 10px;">
-                    <p id="nameOfUser">Владислав Кирилин</p>
-                    <p id="login">+7 960 374 76 55</p>
+                    <p id="nameOfUser">
+                        <?php
+                            if (isset($_SESSION['user_data'])){
+                                echo $_SESSION['user_data']['1'] . ' ' . $_SESSION['user_data']['2'];
+                            }
+                            else{
+                                echo 'ERROR';
+                            }
+                        ?>
+                    </p>
+                    <p id="login">
+                        <?php
+                            if (isset($_SESSION['user_data'])){
+                                echo $_SESSION['user_data']['1'] . ' ' . $_SESSION['user_data']['2'];
+                            }
+                            else{
+                                echo 'ERROR';
+                            }
+                        ?>
+                    </p>
                 </div>
             </div>
 
@@ -301,6 +325,7 @@
                 <li id="searchUsersNav">Поиск пользователей</li>
                 <li id="nightModeNav" class="light">Ночной режим</li>
                 <li id="aboutProjectNav">О проекте</li>
+                <li id="exit">Выход</li>
             </ul>
 
             <div class="footer">
@@ -333,161 +358,16 @@
                             </div>
                         </div>
 
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
+                        <img class="delete" src="../img/icons8-close-48.png" alt="delete">
                     </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="img/icons8-close-48.png" alt="delete">
-                    </li>
-
-                    
                 </ul>
 
-                    <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
+                <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
             </div>
         </div>
     </main>
 
-    <script src="js/functions.js"></script>
-    <script src="js/switching_tabs.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/switching_tabs.js"></script>
 </body>
 </html>
