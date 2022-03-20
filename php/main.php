@@ -309,7 +309,7 @@
                     <p id="login">
                         <?php
                             if (isset($_SESSION['user_data'])){
-                                echo $_SESSION['user_data']['1'] . ' ' . $_SESSION['user_data']['2'];
+                                echo $_SESSION['user_data']['3'];
                             }
                             else{
                                 echo 'ERROR';
