@@ -1,5 +1,50 @@
 <?php
     require 'constants.php';
+
+    $link = mysqli_connect($host, $user, $password, $database);
+    if (!$link){
+        // echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
+        "<script> alert('Ошибка: Невозможно подключиться к MySQL') </script>";
+        exit();
+    }
+
+    // получения всех чатов пользователя вместе с их названиями
+    $all_chats_of_user = array();
+    $id = $_SESSION['user_data']['0'];
+    $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
+    $rows = mysqli_num_rows($result);
+    for($i = 0; $i < $rows; $i++){
+        $array = array(
+            'chat_id' => '',
+            'name_of_chat' => ''
+        );
+        $chat_id = mysqli_fetch_row($result)['0'];
+        $array['chat_id'] = $chat_id;
+        $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
+        array_push($all_chats_of_user, $array);
+    }
+    // print_r($all_chats_of_user);
+
+
+    // получение всех участников беседы в массив
+    $all_partisipants = array();
+    for($i = 0; $i < $rows; $i++){
+        $data = array(
+            'id' => '',
+            'participants' => ''
+        );
+        $chat_id = $all_chats_of_user[$i]['0'];
+        // print_r($i . '   ');
+        $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
+        $rowsIn = mysqli_num_rows($result);
+        $all_partisipants_of_chat = array();
+        for($j = 0; $j < $rowsIn; $j++){
+            array_push($all_partisipants_of_chat, mysqli_fetch_row($result)['1']);
+        }
+        $data['id'] = $chat_id;
+        $data['participants'] = $all_partisipants_of_chat;
+        array_push($all_partisipants, $data);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -309,7 +354,7 @@
                     <p id="login">
                         <?php
                             if (isset($_SESSION['user_data'])){
-                                echo $_SESSION['user_data']['1'] . ' ' . $_SESSION['user_data']['2'];
+                                echo $_SESSION['user_data']['3'];
                             }
                             else{
                                 echo 'ERROR';
@@ -338,7 +383,11 @@
             <header>
                 <input id="chatsSearch" type="text" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 <div style="display: none;">
-                    <p>User</p>
+                    <p>
+                        <?php
+                            echo $name_of_chat;
+                        ?>
+                    </p>
                     <p>Был(а) в сети в <span>12:00</span></p>
                 </div>
             </header>
@@ -353,7 +402,16 @@
                         <div class="infoAboutChat">
                             <div class="avatar"></div>
                             <div>
-                                <p class="nameOfChat">User</p>
+                                <p class="nameOfChat">
+                                    <?php
+                                        for($i = 0; $i < $rows; $i++){
+                                            $name = $all_chats_of_user[$i]['name_of_chat'];
+                                            echo "<script> console.log($name) </script>";
+                                            // print_r($all_chats_of_user[$i]['name_of_chat']);
+                                        }
+
+                                    ?>
+                                </p>
                                 <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
                             </div>
                         </div>

@@ -9,6 +9,7 @@
         echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
         exit();
     }
+    
     $user = new User($_POST['login'], $_POST['password'], $link, $_POST['firstname'], $_POST['lastname'], $_POST['repassword']);
     $result = $user->registration();
     if($result == 2){

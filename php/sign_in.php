@@ -7,9 +7,7 @@
     $link = mysqli_connect($host, $user, $password, $database);
     if (!$link){
         echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
-    } 
-    else {
-        echo "<p>Соединение установлено успешно</p>";
+        exit();
     }
 
     $user = new User($_POST['login'], $_POST['password'], $link);

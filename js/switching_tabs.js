@@ -11,9 +11,10 @@ document.getElementById("chatsNav").onclick = () => {
         modal.style.display = 'none'
         content = document.getElementById('content')
         content.style.backgroundImage = "none"
-        document.getElementById('messegeInputDiv').style.display = "none"
-        document.getElementById('chatsSearch').style.display = "block"
         document.getElementById('welcomeToTheChat').style.display = "none"
+        document.getElementById('chatsSearch').style.display = "block"
+        document.getElementsByTagName('header')['0']['children']['1'].style.display = 'none'
+        document.getElementById('messegeInput').style.display = "none"
     }
 }
 
@@ -32,12 +33,11 @@ chatsDiv = document.getElementById('chats')
 chatsDiv.onclick = (event) => {
     if(chatsDiv.style.display != "none"){
         chatsDiv.style.display = "none"
-        content.style.backgroundImage = "url('img/atlantic-1794462_1280.jpg')"
+        content.style.backgroundImage = "url('../img/atlantic-1794462_1280.jpg')"
         document.getElementById('messegeInput').style.display = "flex"
         document.getElementById('chatsSearch').style.display = "none"
         document.getElementsByTagName('header')['0']['children']['1'].style.display = 'block'
         document.getElementById('welcomeToTheChat').style.display = "block"
-        // document.getElementsByTagName('header').lastChild.style.display = 'block'
         messegeStory.style.display = 'block'
 
         input = document.getElementById('messegeInput')
