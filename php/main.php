@@ -1,50 +1,50 @@
 <?php
-    require 'constants.php';
+    // require 'constants.php';
 
-    $link = mysqli_connect($host, $user, $password, $database);
-    if (!$link){
-        // echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
-        "<script> alert('Ошибка: Невозможно подключиться к MySQL') </script>";
-        exit();
-    }
+    // $link = mysqli_connect($host, $user, $password, $database);
+    // if (!$link){
+    //     // echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
+    //     "<script> alert('Ошибка: Невозможно подключиться к MySQL') </script>";
+    //     exit();
+    // }
 
-    // получения всех чатов пользователя вместе с их названиями
-    $all_chats_of_user = array();
-    $id = $_SESSION['user_data']['0'];
-    $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
-    $rows = mysqli_num_rows($result);
-    for($i = 0; $i < $rows; $i++){
-        $array = array(
-            'chat_id' => '',
-            'name_of_chat' => ''
-        );
-        $chat_id = mysqli_fetch_row($result)['0'];
-        $array['chat_id'] = $chat_id;
-        $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
-        array_push($all_chats_of_user, $array);
-    }
-    // print_r($all_chats_of_user);
+    // // получения всех чатов пользователя вместе с их названиями
+    // $all_chats_of_user = array();
+    // $id = $_SESSION['user_data']['0'];
+    // $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
+    // $rows = mysqli_num_rows($result);
+    // for($i = 0; $i < $rows; $i++){
+    //     $array = array(
+    //         'chat_id' => '',
+    //         'name_of_chat' => ''
+    //     );
+    //     $chat_id = mysqli_fetch_row($result)['0'];
+    //     $array['chat_id'] = $chat_id;
+    //     $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
+    //     array_push($all_chats_of_user, $array);
+    // }
+    // // print_r($all_chats_of_user);
 
 
-    // получение всех участников беседы в массив
-    $all_partisipants = array();
-    for($i = 0; $i < $rows; $i++){
-        $data = array(
-            'id' => '',
-            'participants' => ''
-        );
-        $chat_id = $all_chats_of_user[$i]['0'];
-        // print_r($i . '   ');
-        $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
-        $rowsIn = mysqli_num_rows($result);
-        $all_partisipants_of_chat = array();
-        for($j = 0; $j < $rowsIn; $j++){
-            array_push($all_partisipants_of_chat, mysqli_fetch_row($result)['1']);
-        }
-        $data['id'] = $chat_id;
-        $data['participants'] = $all_partisipants_of_chat;
-        array_push($all_partisipants, $data);
-    }
+    // // получение всех участников беседы в массив
+    // $all_partisipants = array();
+    // for($i = 0; $i < $rows; $i++){
+    //     $data = array(
+    //         'id' => '',
+    //         'participants' => ''
+    //     );
+    //     $chat_id = $all_chats_of_user[$i]['0'];
+    //     // print_r($i . '   ');
+    //     $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
+    //     $rowsIn = mysqli_num_rows($result);
+    //     $all_partisipants_of_chat = array();
+    //     for($j = 0; $j < $rowsIn; $j++){
+    //         array_push($all_partisipants_of_chat, mysqli_fetch_row($result)['1']);
+    //     }
+    //     $data['id'] = $chat_id;
+    //     $data['participants'] = $all_partisipants_of_chat;
+    //     array_push($all_partisipants, $data);
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -185,9 +185,9 @@
 
             <!-- Высота modalContent: 200px -->
             <div id="createChat" class="modalDiv" style="display: none;">
-                <h3 style="padding: 10px; margin: 0;">Название беседы</h3>
+                <h3>Название беседы</h3>
                 <form action="#" method="POST">
-                    <input type="text" id="nameChatInput" placeholder="название" required style="color: var(--current-main-text-color);">
+                    <input type="text" id="nameChatInput" placeholder="название" required>
                 </form>
                <div style="margin: auto 0 0 auto;">
                     <button id="createChatResetButton">Отмена</button>
@@ -319,7 +319,7 @@
             </div>
 
             <!-- Высота modalContent: 500px -->
-            <div id="aboutProject" class="modalDiv" style="box-sizing: border-box; display: none; flex-direction: column; padding: 10px; height: 100%;"> 
+            <div id="aboutProject" class="modalDiv" style=""> 
                 <h3>О проекте «Messenger»</h3>
                 <p><b>Messenger</b> – социальная сеть в России и странах СНГ. Наша миссия — соединять людей, сервисы и компании, создавая простые и удобные инструменты коммуникации.</p>
 
@@ -380,6 +380,9 @@
         </div>
 
         <div id="mainContent">
+            <button id='menuBtn' class='disable'>
+                <img src="../img/menu.png" alt="menu">
+            </button>
             <header>
                 <input id="chatsSearch" type="text" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 <div style="display: none;">
@@ -392,9 +395,9 @@
                 </div>
             </header>
             
-            <div id="content" style="height: 730px; background-size: cover; display: flex; flex-direction: column;">
-                <h2 id="welcomeToTheChat" style="display: none; color: white; margin: 0; padding: 10px; opacity: 0.8;">Напишите что нибудь здесь. История сообщений пуста</h2>
-                <ul id="messegeStory" style="overflow: auto; height: 100%; display: none;"></ul>
+            <div id="content">
+                <h2 id="welcomeToTheChat" >Напишите что нибудь здесь. История сообщений пуста</h2>
+                <ul id="messegeStory"></ul>
 <!-- ################################# C H A T S ###################################################################################### -->
 
                 <ul id="chats" style="display: block;">

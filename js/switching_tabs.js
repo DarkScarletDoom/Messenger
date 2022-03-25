@@ -18,6 +18,25 @@ document.getElementById("chatsNav").onclick = () => {
     }
 }
 
+//кнопка меню
+menuBtn = document.getElementById("menuBtn")
+menuBtn.onclick = () => {
+    menu = document.getElementById("profile")
+    
+    if (menuBtn.classList.contains("disable")){
+        menu.style.left = '0'
+        menuBtn.style.left = '70%'
+        menuBtn.classList.add("active")
+        menuBtn.classList.remove("disable")
+    }
+    else {
+        menu.style.left = '-70%'
+        menuBtn.style.left = '0'
+        menuBtn.classList.add("disable")
+        menuBtn.classList.remove("active")
+    }
+}
+
 // открытие поиска пользователей
 document.getElementById("searchUsersNav").onclick = () => {
     if(modal.style.display == 'none'){
