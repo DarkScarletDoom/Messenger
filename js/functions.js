@@ -56,3 +56,25 @@ function closeModal(display) {
         }
     }
 }
+
+// добавления чатов
+function appendChatList(chat, message){
+    chatList = document.querySelector('#chats')
+    newLi = document.createElement('li')
+    deleteIcon = document.createElement('div')
+    InfoAbout = document.createElement('div')
+    avatar = document.createElement('div')
+    div = document.createElement('div')
+    nameOfChat = document.createElement('p')
+    nameOfChat.textContent = chat
+    lastMessege = document.createElement('p')
+    lastMessege.textContent = message
+
+    chatList.appendChild(newLi)
+    newLi.appendChild(InfoAbout).classList.add('infoAboutChat')
+    InfoAbout.appendChild(avatar).classList.add('avatar')
+    InfoAbout.appendChild(div)
+    div.appendChild(nameOfChat).classList.add('nameOfChat')
+    div.appendChild(lastMessege).classList.add('lastMessege')
+    newLi.appendChild(deleteIcon).classList.add('delete')
+}
