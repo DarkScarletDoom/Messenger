@@ -19,10 +19,24 @@ document.getElementById("chatsNav").onclick = () => {
 }
 
 // открытие поиска пользователей
-document.getElementById("searchUsersNav").onclick = () => {
+document.getElementById("searchUsersNav").onclick = () => { 
     if(modal.style.display == 'none'){
         modal.style.display = 'flex'
         modalContent.style.height = '650px'
+
+        id = document.getElementsByTagName('main')['0']['dataset']['id']
+        let xhr1 = new XMLHttpRequest()
+        xhr1.open('POST', '../php/ajax/get_users.php', false)
+        xhr1.onload = () => {
+            response = JSON.parse(xhr1.response)
+            response.forEach(elem => {
+                if(elem['0'] != id){
+                    nameOfUser = elem['1'] + ' ' + elem['2']
+                    appendUsersList(nameOfUser)
+                }
+            })
+        }
+        xhr1.send()
         document.getElementById("searchUsers").style.display = "block"
         closeModal(modal.style.display)
     }

@@ -16,7 +16,7 @@ parseUnixTime = (date) => {
     return time
 }
 
-// добавления чатов
+// добавление чатов
 appendChatList = (chat, message, time) => {
     chatList = document.querySelector('#chats')
     newLi = document.createElement('li')
@@ -36,6 +36,24 @@ appendChatList = (chat, message, time) => {
     div.appendChild(nameOfChat).classList.add('nameOfChat')
     div.appendChild(lastMessege).classList.add('lastMessege')
     newLi.appendChild(deleteIcon).classList.add('delete')
+}
+
+// добавление пользователей
+appendUsersList = (fullname) => {
+    userList = document.getElementsByClassName('searchUserslist')['0']
+    newLi = document.createElement('li')
+    newDiv1 = document.createElement('div')
+    newDiv2 = document.createElement('div')
+    avatar = document.createElement('div')
+
+    nameOfUser = document.createElement('p')
+    nameOfUser.textContent = fullname
+    
+    userList.appendChild(newLi)
+    newLi.appendChild(newDiv1).style.display = 'flex'
+    newDiv1.appendChild(avatar).classList.add('avatar')
+    newDiv1.appendChild(newDiv2)
+    newDiv2.appendChild(nameOfUser).classList.add('nameOfChat')
 }
 
 createMessege = (text, from) => {
@@ -73,6 +91,10 @@ closeModal = (display) => {
                     for (var i = 0; i < modalContent.children.length; i++) {
                         modalContent.children[i].style.display = "none"
                         modal.style.display = "none"
+                        list = document.getElementsByClassName('searchUserslist')['0']
+                        while (list.firstChild) {
+                            list.removeChild(list.firstChild);
+                        }
                     }
                 }
             }

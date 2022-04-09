@@ -5,32 +5,6 @@
     $db = new db('messenger', 'root', '', 'messenger');
     $link = $db->connect();
 
-    // получения всех чатов пользователя вместе с их названиями
-    $all_chats_of_user = array();
-    $id = $_SESSION['user_data']['0'];
-    $result = $db->query("SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
-    print_r($id);
-    $rows = $result['rows'];
-    for($i = 0; $i < $rows; $i++){
-        $array = array(
-            'chat_id' => '',
-            'name_of_chat' => '',
-            'last_message' => '',
-            'datetime' => ''
-        );
-        $chat_id = $result[$i]['0'];
-        $array['chat_id'] = $chat_id;
-    //    $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
-        $array['name_of_chat'] = $db->query("SELECT * FROM `chats` WHERE `id` = \"$chat_id\"")['0']['2'];
-
-    //    $responce = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `messege` WHERE `chat_id` = \"$chat_id\""));
-        $responce = $db->query("SELECT * FROM `messege` WHERE `chat_id` = \"$chat_id\"")['0'];
-
-        $array['last_message'] = $responce['4'];
-        $array['datetime'] = strtotime($responce['5']);
-        array_push($all_chats_of_user, $array);
-    }
-    // print_r($all_chats_of_user);
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +30,7 @@
                     <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                </div>
                 <ul class="searchUserslist" style="height: 540px;">
-                    <li>
+                    <!-- <li>
                         <div style="display: flex;">
                             <div class="avatar"></div>
                             <div>
@@ -165,7 +139,7 @@
                                 <p class="statusOffline">Был(а) в 11:00</p>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -188,7 +162,7 @@
                     <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 </div>
                 <ul class="searchUserslist">
-                    <li>
+                    <!-- <li>
                         <div style="display: flex;">
                             <div class="avatar"></div>
                             <div>
@@ -295,7 +269,7 @@
                                 <p class="statusOffline">Был(а) в 11:00</p>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div class="stickyDivFooter">
@@ -322,7 +296,7 @@
 
 <!-- ################################# M A I N ###################################################################################### -->
 
-    <main>
+    <main data-id='<?=$_SESSION['user_data']['0'];?>'>
         <div id="profile">
             <div id="profileHeader">
                 <div class="avatar" id="userAvatar"></div>

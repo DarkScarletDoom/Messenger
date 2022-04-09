@@ -1,8 +1,7 @@
 let xhr = new XMLHttpRequest()
-    xhr.open('POST', '../php/ajax/data.php', false)
+    xhr.open('POST', '../php/ajax/get_chats.php', false)
     xhr.onload = () => {
         response = JSON.parse(xhr.response)
-        console.log(response)
         if (response['length'] == 0) {
             console.log('у вас нет чатов')
         }
