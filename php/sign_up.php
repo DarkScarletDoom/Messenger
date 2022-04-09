@@ -1,17 +1,13 @@
 <?php
-    require 'constants.php';
+    require 'config.php';
 ?> 
  
 <?php
-    // подключаемся к серверу
-    $link = mysqli_connect($host, $user, $password, $database);
-    if (!$link){
-        echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
-        exit();
-    }
+    $db = new db('messenger', 'root', '', 'messenger');
+    $link = $db->connect();
     
-    $user = new User($_POST['login'], $_POST['password'], $link, $_POST['firstname'], $_POST['lastname'], $_POST['repassword']);
-    $result = $user->registration();
+    $user = new User($_POST['login'], $_POST['password'], $db, 'reg', $_POST['firstname'], $_POST['lastname'], $_POST['repassword']);
+    $result = $user->authorization_or_registrtion();
     if($result == 2){
         echo "<script>
                 alert('Ошибка запроса. Попробуйте еще раз')
@@ -25,10 +21,18 @@
              </script>";
     }
     else{
-        $user->save_session_data();
-        echo "<script>
-                window.location.href = 'main.php'
-             </script>"; 
+        if($_SESSION == NULL){
+            echo "<script>
+                    alert('Ошибка доступа / access_error')
+                    window.location.href = '../index.html'
+                 </script>"; 
+        }
+        else{
+            echo "<script>
+                    alert('Добро пожаловать!')
+                    window.location.href = 'main.php'
+                 </script>"; 
+        }
+        
     }            
-    mysqli_close($link);
 ?>

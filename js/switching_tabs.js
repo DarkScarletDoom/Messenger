@@ -113,6 +113,11 @@ document.getElementById("aboutProjectNav").onclick = () => {
     }
 }
 
+// выход из аккаунта
+document.getElementById("exit").onclick = () => {
+    window.location.href = '../php/exit.php';
+}
+
 // ночной режим
 nightMode = document.getElementById("nightModeNav")
 rootStyle = document.documentElement.style
@@ -130,7 +135,8 @@ nightMode.onclick = () => {
 
         // замена икнок крестиков
         for (i = 0; i < deleteIcons.length; i++){
-            deleteIcons[i].src = '../img/icons8-close-48 (1).png'
+            // deleteIcons[i].src = '../img/icons8-close-48 (1).png'
+            deleteIcons[i].style.backgroundImage = 'url(../img/dark_theme_close_icon.png)'
         }
     }
     else {
@@ -145,7 +151,7 @@ nightMode.onclick = () => {
 
          // замена икнок крестиков
         for (i = 0; i < deleteIcons.length; i++){
-            deleteIcons[i].src = '../img/icons8-close-48.png'
+            deleteIcons[i].style.backgroundImage = 'url(../img/light_theme_close_icon.png)'
         }
     }
 }

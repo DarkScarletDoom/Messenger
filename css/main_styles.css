@@ -17,9 +17,8 @@
     --current-theme-hover: var(--light-theme-hover);
     --current-main-text-color: var(--light-main-text-color);
 }
-
 body{
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     padding: 0;
     margin: 0;
     display: flex;
@@ -213,8 +212,8 @@ main{
 }
 
 #userAvatar{
-    background-image: url(../img/personal/aG8Dm5c46R4.jpg);
-    background-size: cover;
+    /* background-image: url(../img/personal/aG8Dm5c46R4.jpg);
+    background-size: cover; */
     display: flex;
     align-items: center;
     justify-content: center
@@ -297,6 +296,8 @@ header{
 }
 
 .delete{
+    background-image: url(../img/light_theme_close_icon.png);
+    background-size: cover;
     height: 15px;
     width: 15px;
     opacity: 0.5;

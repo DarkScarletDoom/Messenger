@@ -1,50 +1,36 @@
 <?php
-    require 'constants.php';
+    require_once 'config.php';
+    // var_dump($_SESSION);
 
-    $link = mysqli_connect($host, $user, $password, $database);
-    if (!$link){
-        // echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
-        "<script> alert('Ошибка: Невозможно подключиться к MySQL') </script>";
-        exit();
-    }
+    $db = new db('messenger', 'root', '', 'messenger');
+    $link = $db->connect();
 
     // получения всех чатов пользователя вместе с их названиями
     $all_chats_of_user = array();
     $id = $_SESSION['user_data']['0'];
-    $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
-    $rows = mysqli_num_rows($result);
+    $result = $db->query("SELECT * FROM `chat_partisipants` WHERE `user_id` = \"$id\"");
+    print_r($id);
+    $rows = $result['rows'];
     for($i = 0; $i < $rows; $i++){
         $array = array(
             'chat_id' => '',
-            'name_of_chat' => ''
+            'name_of_chat' => '',
+            'last_message' => '',
+            'datetime' => ''
         );
-        $chat_id = mysqli_fetch_row($result)['0'];
+        $chat_id = $result[$i]['0'];
         $array['chat_id'] = $chat_id;
-        $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
+    //    $array['name_of_chat'] = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `chats` WHERE `id` = \"$chat_id\""))['2'];
+        $array['name_of_chat'] = $db->query("SELECT * FROM `chats` WHERE `id` = \"$chat_id\"")['0']['2'];
+
+    //    $responce = mysqli_fetch_row(mysqli_query($link, "SELECT * FROM `messege` WHERE `chat_id` = \"$chat_id\""));
+        $responce = $db->query("SELECT * FROM `messege` WHERE `chat_id` = \"$chat_id\"")['0'];
+
+        $array['last_message'] = $responce['4'];
+        $array['datetime'] = strtotime($responce['5']);
         array_push($all_chats_of_user, $array);
     }
     // print_r($all_chats_of_user);
-
-
-    // получение всех участников беседы в массив
-    $all_partisipants = array();
-    for($i = 0; $i < $rows; $i++){
-        $data = array(
-            'id' => '',
-            'participants' => ''
-        );
-        $chat_id = $all_chats_of_user[$i]['0'];
-        // print_r($i . '   ');
-        $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
-        $rowsIn = mysqli_num_rows($result);
-        $all_partisipants_of_chat = array();
-        for($j = 0; $j < $rowsIn; $j++){
-            array_push($all_partisipants_of_chat, mysqli_fetch_row($result)['1']);
-        }
-        $data['id'] = $chat_id;
-        $data['participants'] = $all_partisipants_of_chat;
-        array_push($all_partisipants, $data);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -386,6 +372,7 @@
                     <p>
                         <?php
                             echo $name_of_chat;
+                            $json = json_encode($all_chats_of_user);
                         ?>
                     </p>
                     <p>Был(а) в сети в <span>12:00</span></p>
@@ -397,35 +384,16 @@
                 <ul id="messegeStory" style="overflow: auto; height: 100%; display: none;"></ul>
 <!-- ################################# C H A T S ###################################################################################### -->
 
-                <ul id="chats" style="display: block;">
-                    <li>
-                        <div class="infoAboutChat">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">
-                                    <?php
-                                        for($i = 0; $i < $rows; $i++){
-                                            $name = $all_chats_of_user[$i]['name_of_chat'];
-                                            echo "<script> console.log($name) </script>";
-                                            // print_r($all_chats_of_user[$i]['name_of_chat']);
-                                        }
-
-                                    ?>
-                                </p>
-                                <p class="lastMessege">Hello! how are you? · <span class="time">12:00</span></p>
-                            </div>
-                        </div>
-
-                        <img class="delete" src="../img/icons8-close-48.png" alt="delete">
-                    </li>
-                </ul>
+                <ul id="chats" style="display: block;"></ul>
 
                 <input id="messegeInput" type="text" placeholder="Напишите свое сообщение...">
             </div>
         </div>
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/functions.js"></script>
     <script src="../js/switching_tabs.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

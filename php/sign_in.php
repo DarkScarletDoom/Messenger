@@ -1,17 +1,13 @@
 <?php
-    require 'constants.php';
+    require_once 'config.php';
 ?>
 
 <?php
-    // подключаемся к серверу
-    $link = mysqli_connect($host, $user, $password, $database);
-    if (!$link){
-        echo "<p>Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error() . "</p>";
-        exit();
-    }
+    $db = new db('messenger', 'root', '', 'messenger');
+    $link = $db->connect();
 
-    $user = new User($_POST['login'], $_POST['password'], $link);
-    $response = $user->authorization();
+    $user = new User($_POST['login'], $_POST['password'], $db, 'ent');
+    $response = $user->authorization_or_registrtion();
     if ($response == 2){
         echo "<script>
                 alert('Ошибка запроса. Попробуйте еще раз')
@@ -23,13 +19,18 @@
                 window.location.href = '../index.html'
              </script>";
     }
-    else{   
-        $user->save_session_data();
-        echo "<script>
-                alert('Добро пожаловать!')
-                window.location.href = 'main.php'
-             </script>"; 
+    else{
+        if($_SESSION == NULL){
+            echo "<script>
+                    alert('Ошибка доступа / access_error')
+                    window.location.href = '../index.html'
+                 </script>"; 
+        }
+        else{
+            echo "<script>
+                    alert('Добро пожаловать!')
+                    window.location.href = 'main.php'
+                 </script>"; 
+        }
     }
-
-    mysqli_close($link);
 ?>
