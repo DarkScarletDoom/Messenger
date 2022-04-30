@@ -14,6 +14,7 @@ document.getElementById("chatsNav").onclick = () => {
         document.getElementById('welcomeToTheChat').style.display = "none"
         document.getElementById('chatsSearch').style.display = "block"
         document.getElementsByTagName('header')['0']['children']['1'].style.display = 'none'
+        document.getElementById('nameOfChat').innerText = ''
         document.getElementById('messegeInput').style.display = "none"
     }
 }
@@ -24,19 +25,7 @@ document.getElementById("searchUsersNav").onclick = () => {
         modal.style.display = 'flex'
         modalContent.style.height = '650px'
 
-        id = document.getElementsByTagName('main')['0']['dataset']['id']
-        let xhr1 = new XMLHttpRequest()
-        xhr1.open('POST', '../php/ajax/get_users.php', false)
-        xhr1.onload = () => {
-            response = JSON.parse(xhr1.response)
-            response.forEach(elem => {
-                if(elem['0'] != id){
-                    nameOfUser = elem['1'] + ' ' + elem['2']
-                    appendUsersList(nameOfUser)
-                }
-            })
-        }
-        xhr1.send()
+        getUsersList('searchUserslist')
         document.getElementById("searchUsers").style.display = "block"
         closeModal(modal.style.display)
     }
@@ -53,18 +42,34 @@ chatsDiv.onclick = (event) => {
         document.getElementsByTagName('header')['0']['children']['1'].style.display = 'block'
         document.getElementById('welcomeToTheChat').style.display = "block"
         messegeStory.style.display = 'block'
+        path = event.path
+        path.forEach(element => {
+            if(element.tagName == 'LI'){
+                nameOfChat = element.firstChild.lastChild.firstChild.innerHTML
+                document.getElementById('nameOfChat').innerText = nameOfChat
+                opponent_id = element.dataset.opponent_id
+                chat_id = element.dataset.chat_id
+            }
+        })
 
         input = document.getElementById('messegeInput')
         input.addEventListener('keypress', function(event) {
             val = input.value
             if(event.code == 'Enter' && val != '' || event['which'] == 13){
                 input.value = ""
-                createMessege(val, "User")
+                time = createMessege(val, "User")
+                
+                let xhr = new XMLHttpRequest()
+                xhr.open('GET', '../php/ajax/send_message.php?value=' + val + '&time=' + time + '&opponent_id=' + opponent_id + '&chat_id=' + chat_id)
+                xhr.onload = () => {
+                    console.log(xhr.status)
+                    console.log(JSON.parse(xhr.response))
+                }
+                xhr.send()
             }
         })
     }
 }
-
 // открытие модалки создания чата
 document.getElementById("createChatNav").onclick = () => {
     if(modal.style.display == "none"){
@@ -79,38 +84,47 @@ document.getElementById("createChatNav").onclick = () => {
         }
         // кнопка далее
         document.getElementById('createChatNextButton').onclick = () => {
-            createChat.display = "none"
-            addParticipants = document.getElementById('addParticipants')
-            addParticipants.style.display = "block"
-            modalContent.style.height = "650px"
+            if(document.getElementById('nameChatInput').value != ''){
+                getUsersList('addParticipantsSearchUserslist')
+                createChat.display = "none"
+                addParticipants = document.getElementById('addParticipants')
+                addParticipants.style.display = "block"
+                modalContent.style.height = "650px"
 
-            // выделение пользователей для добавления в чат
-            document.getElementById('addParticipants').querySelector('.searchUserslist').onclick = (e) => {
-                console.log(e.composedPath())
-                for (i = 0; i < e.composedPath().length; i++){
-                    if(e.composedPath()[i]['localName'] == 'li'){
-                        if(e.composedPath()[i].classList != 'add'){
-                            e.composedPath()[i].classList.add('add')
+                // выделение пользователей для добавления в чат
+                document.getElementById('addParticipants').querySelector('#addParticipantsSearchUserslist').onclick = (e) => {
+                    // console.log(e.composedPath())
+                    for (i = 0; i < e.composedPath().length; i++){
+                        if(e.composedPath()[i]['localName'] == 'li'){
+                            if(e.composedPath()[i].classList != 'add'){
+                                e.composedPath()[i].classList.add('add')
+                            }
+                            else{
+                                e.composedPath()[i].classList.remove('add')
+                            }
+                            break
                         }
-                        else{
-                            e.composedPath()[i].classList.remove('add')
-                        }
-                        break
                     }
                 }
+                // кнопка назад
+                document.getElementById('createChatBackButton').onclick = () => {
+                    modalContent.style.height = '200px'
+                    createChat.display = "flex"
+                    addParticipants.style.display = "none"
+                    list = document.querySelector('#addParticipantsSearchUserslist')
+                    while (list.firstChild) {
+                        list.removeChild(list.firstChild);
+                    }
+                }
+                // кнопка создать
+                document.getElementById('createChatCreateButton').onclick = () => {
+                    modal.style.display = 'none'
+                    addParticipants.style.display = 'none'
+                    createChat.display = "none"
+                }
             }
-
-            // кнопка назад
-            document.getElementById('createChatBackButton').onclick = () => {
-                modalContent.style.height = '200px'
-                createChat.display = "flex"
-                addParticipants.style.display = "none"
-            }
-            // кнопка создать
-            document.getElementById('createChatCreateButton').onclick = () => {
-                modal.style.display = 'none'
-                addParticipants.style.display = 'none'
-                createChat.display = "none"
+            else{
+                alert('Введите название чата')
             }
         }
         closeModal(modal.style.display)    

@@ -17,9 +17,11 @@ parseUnixTime = (date) => {
 }
 
 // добавление чатов
-appendChatList = (chat, message, time) => {
+appendChatList = (chat, message, time, id_of_opponent, chat_id) => {
     chatList = document.querySelector('#chats')
     newLi = document.createElement('li')
+    newLi.setAttribute('data-opponent_id', id_of_opponent)
+    newLi.setAttribute('data-chat_id', chat_id)
     deleteIcon = document.createElement('div')
     InfoAbout = document.createElement('div')
     avatar = document.createElement('div')
@@ -39,8 +41,8 @@ appendChatList = (chat, message, time) => {
 }
 
 // добавление пользователей
-appendUsersList = (fullname) => {
-    userList = document.getElementsByClassName('searchUserslist')['0']
+appendUsersList = (fullname, list) => {
+    userList = document.getElementById(list)
     newLi = document.createElement('li')
     newDiv1 = document.createElement('div')
     newDiv2 = document.createElement('div')
@@ -80,6 +82,7 @@ createMessege = (text, from) => {
     newPTime = document.createElement("p")
     newPTime.textContent = time;   
     newLi.appendChild(newPTime)
+    return now / 1000
 }
 
 closeModal = (display) => {
@@ -88,16 +91,41 @@ closeModal = (display) => {
             const withinBoundaries = event.composedPath().includes(modalContent) //получаем путь до объекта включая модальное окно
             if (!withinBoundaries) {
                 if(modal.style.display == "flex"){
+
+
+                    list = document.querySelector('#searchUserslist')
+                    while (list.firstChild) {
+                        list.removeChild(list.firstChild);
+                    }
+                    list = document.querySelector('#addParticipantsSearchUserslist')
+                    while (list.firstChild) {
+                        list.removeChild(list.firstChild);
+                    }
+                    document.getElementById('nameChatInput').value = ''
+
+
                     for (var i = 0; i < modalContent.children.length; i++) {
                         modalContent.children[i].style.display = "none"
                         modal.style.display = "none"
-                        list = document.getElementsByClassName('searchUserslist')['0']
-                        while (list.firstChild) {
-                            list.removeChild(list.firstChild);
-                        }
                     }
                 }
             }
         }
     }
+}
+
+getUsersList = (listname) => {
+    id = document.getElementsByTagName('main')['0']['dataset']['id']
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', '../php/ajax/get_users.php', false)
+    xhr.onload = () => {
+        response = JSON.parse(xhr.response)
+        response.forEach(elem => {
+            if(elem['0'] != id){
+                nameOfUser = elem['1'] + ' ' + elem['2']
+                appendUsersList(nameOfUser, listname)
+            }
+        })
+    }
+    xhr.send()
 }

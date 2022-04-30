@@ -5,6 +5,26 @@
     $db = new db('messenger', 'root', '', 'messenger');
     $link = $db->connect();
 
+        // $id = uniqid();
+        // $from_id = $_SESSION['user_data']['0'];
+        // $content = 'ghbdtn';
+        // $result = NULL;
+
+        // $sql = "INSERT INTO `messege`(`id`, `from_id`, `to_id`, `chat_id`, `content`, `created_at`) VALUES ('$id', '$from_id', '6236ea66db8e5', '111111111', '$content', '2077-04-15 15:43:12')";
+        // $result = mysqli_query($link, $sql);    
+        // $arr = array(
+        //     'message' => ' ', 
+        //     'from_id' => ' ', 
+        //     'id' => ' ',
+        //     'response' => ' ',
+        //     'sql' => ' '
+        // );
+        // $arr['message'] = $content;
+        // $arr['from_id'] = $from_id;
+        // $arr['id'] = $id;
+        // $arr['response'] = $result;
+        // $arr['sql'] = $sql;
+        // print_r($arr);
 ?>
 
 <!DOCTYPE html>
@@ -29,118 +49,7 @@
                     <h3 style="margin-left: 10px;">Поиск пользователей</h3>
                     <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                </div>
-                <ul class="searchUserslist" style="height: 540px;">
-                    <!-- <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li> 
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li> 
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">
-                                    User
-                                </p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li> 
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li> 
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li> 
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li> -->
-                </ul>
+                <ul id="searchUserslist" class="searchUserslist" style="height: 540px;"></ul>
             </div>
 
             <!-- Высота modalContent: 200px -->
@@ -161,116 +70,7 @@
                     <h3 style="margin-left: 10px;">Добавить участников</h3>
                     <input type="text" id="searchUsersinput" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 </div>
-                <ul class="searchUserslist">
-                    <!-- <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOnline">В сети</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="display: flex;">
-                            <div class="avatar"></div>
-                            <div>
-                                <p class="nameOfChat">User</p>
-                                <p class="statusOffline">Был(а) в 11:00</p>
-                            </div>
-                        </div>
-                    </li> -->
-                </ul>
+                <ul class="searchUserslist" id="addParticipantsSearchUserslist" style="height: 480px;"></ul>
 
                 <div class="stickyDivFooter">
                     <button id="createChatBackButton">Назад</button>
@@ -343,12 +143,7 @@
             <header>
                 <input id="chatsSearch" type="text" placeholder="Поиск" style="color: var(--current-main-text-color);">
                 <div style="display: none;">
-                    <p>
-                        <?php
-                            echo $name_of_chat;
-                            $json = json_encode($all_chats_of_user);
-                        ?>
-                    </p>
+                    <p id="nameOfChat"></p>
                     <p>Был(а) в сети в <span>12:00</span></p>
                 </div>
             </header>

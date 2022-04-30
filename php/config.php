@@ -24,7 +24,8 @@
 
         public function close_connect(){
             if ($this->link != NULL){
-                mysqli_close($this->link);
+                $is_close = mysqli_close($this->link);
+                return $is_close;
             }
         }
 

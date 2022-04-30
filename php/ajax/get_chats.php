@@ -27,7 +27,6 @@
                 $max = $responce[$j]['5'];
             }
         }
-       
         $last_message = $db->query("SELECT * FROM `messege` WHERE `created_at` = \"$max\"");
         $array['last_message'] = $last_message['0']['4'];
         $array['datetime'] = strtotime($max);
@@ -41,7 +40,7 @@
     //         'id' => '',
     //         'participants' => ''
     //     );
-    //     $chat_id = $all_chats_of_user[$i]['0'];
+    //     $chat_id = $all_chats_of_user[$i]['chat_id'];
     //     // print_r($i . '   ');
     //     $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
     //     $rowsIn = mysqli_num_rows($result);
@@ -54,7 +53,36 @@
     //     array_push($all_partisipants, $data);
     // }
 
+    // получение айди собеседников в соответствии с айди чата
+    $all_partisipants = array();
+    for($i = 0; $i < $rows; $i++){
+        $data = array(
+            'id' => '',
+            'opponent' => ''
+        );
+        $chat_id = $all_chats_of_user[$i]['chat_id'];
+        // print_r($i . '   ');
+        $result = mysqli_query($link, "SELECT * FROM `chat_partisipants` WHERE `chat_id` = \"$chat_id\"");
+        $rowsIn = mysqli_num_rows($result);
+        // $all_partisipants_of_chat = array();
+        for($j = 0; $j < $rowsIn; $j++){
+            $id = mysqli_fetch_row($result)['1'];
+            if ($id != $_SESSION['user_data']['0']){
+                // array_push($all_partisipants_of_chat, $id);
+                $opponent = $id;
+            }
+        }
+        $data['id'] = $chat_id;
+        $data['opponent'] = $opponent;
+        array_push($all_partisipants, $data);
+    }
+
+    $data = array(
+        'all_chats_of_user' => $all_chats_of_user,
+        'all_participants' => $all_partisipants
+    );
+
     // отправка ajax
-    $json = json_encode($all_chats_of_user);
+    $json = json_encode($data);
     echo $json;
 ?>
